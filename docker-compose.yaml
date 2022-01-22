@@ -1,0 +1,29 @@
+version: "2.3"
+
+services:
+  ffserver:  # Expose a stream over url
+    image:  popszer/ffserver:1.0.0
+    build: .
+    volumes:
+      - .:/app:ro
+    env_file:
+      - .env
+    environment:
+      FFSERVER_LOG_LEVEL: error
+      RTSP_PORT: ${RTSP_PORT}
+    ports:
+      - "${RTSP_PORT}:5554"  # 5554 is the default port for RTSP
+    command: ffserver -hide_banner -loglevel error -f ffserver.conf -d
+
+  stream_writer:  # Write the input video to the stream
+    image:  popszer/ffserver:1.0.0
+    build: .
+    env_file:
+      - .env
+    environment:
+      INPUT_VIDEO_NAME: ${INPUT_VIDEO_NAME}
+    depends_on:
+      - ffserver
+    volumes:
+      - .:/app:ro
+    command: bash expose_stream.sh
