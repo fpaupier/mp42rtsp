@@ -39,7 +39,7 @@ docker-compose up -d
 5. Test that your stream is readable ~ you can use the `ffplay` utils (bundled with ffmpeg)
 ```shell
 ffplay "rtsp://host-ip:RTSP_PORT/streamer.mpeg4"
- # Your public ip os available by doing `curl ifconfig.io`
+ # Your public ip is available by doing `curl ifconfig.io`
 ```
 
 
