@@ -1,7 +1,9 @@
 # Generate a rtsp video stream from an mp4 video 
 
 <p align="center">
-    <img src="https://img.shields.io/badge/dockerized-yes-brightgreen"/>
+    <a href="https://hub.docker.com/repository/docker/popszer/ffserver">
+        <img src="https://img.shields.io/badge/dockerized-yes-brightgreen?style=plastic&logo=docker"/>
+    </a>
 </p>
 
 
