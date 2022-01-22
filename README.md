@@ -36,11 +36,14 @@ vim .env  # Edit the values of RTSP_PORT and INPUT_VIDEO
 docker-compose up -d
 ```
 
-5. Test that your stream is readable ~ you can use the `ffplay` utils (bundled with ffmpeg)
+Your stream is now available at rtsp://YOUR-HOST-IP:RTSP_PORT/streamer.mpeg4 You can test it with your favorite stream player!
+(Your public ip is available by doing `curl ifconfig.io`)
+
+- On UNIX you can use the `ffplay` utils (bundled with ffmpeg) 
 ```shell
-ffplay "rtsp://host-ip:RTSP_PORT/streamer.mpeg4"
- # Your public ip is available by doing `curl ifconfig.io`
+ffplay "rtsp://YOUR-HOST-IP:RTSP_PORT/streamer.mpeg4"
 ```
+- On iOS you can also play your stream using the [VLC app](https://apps.apple.com/us/app/vlc-for-mobile/id650377962) available 
 
 
 ## Credits
